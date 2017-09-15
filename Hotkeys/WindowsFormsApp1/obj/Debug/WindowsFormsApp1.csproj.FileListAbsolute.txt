@@ -36,3 +36,12 @@ F:\大二下学习文件\操作系统\课程设计\Hotkeys\WindowsFormsApp1\obj\
 F:\大二下学习文件\操作系统\课程设计\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
 F:\大二下学习文件\操作系统\课程设计\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 F:\大二下学习文件\操作系统\课程设计\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+E:\OS_course_design\OS-course-design\Hotkeys\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources

@@ -60,10 +60,16 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AlwaysTop.cs" />
-    <Compile Include="RunApp.cs" />
+    <Compile Include="RunApp1.cs" />
+    <Compile Include="RunApp2.cs" />
+    <Compile Include="RunApp3.cs" />
+    <Compile Include="RunApp4.cs" />
     <Compile Include="Transparency.cs" />
     <Compile Include="WindowsFunction.cs" />
     <Compile Include="WindowsFunctionFactory.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

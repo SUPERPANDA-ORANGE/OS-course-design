@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
                 case 4:
                     return new Transparency(hwnd);
                 case 5:
-                    return new RunApp(hwnd);
+                    return new RunApp1(hwnd);
                 case 6:
                     return new CreateNotepad(hwnd);
                 case 7:
