@@ -108,7 +108,17 @@ namespace WindowsFormsApp1
 
         private void contextMenuStrip1_Click(object sender, EventArgs e)
         {
-            //WindowState = FormWindowState.Normal;
+            
+            
+        }
+
+        private void 显示ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             if (MessageBox.Show("是否确认退出程序？", "退出", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 // 关闭所有的线程
