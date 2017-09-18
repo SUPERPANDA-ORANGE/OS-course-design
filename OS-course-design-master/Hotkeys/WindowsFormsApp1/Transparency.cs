@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
         {
             //启动和关闭透明效果。125为半透明，255为不透明
             if (isTransparent == 255) isTransparent = 125;
-            else if(isTransparent == 125) isTransparent = 255;
+            else if (isTransparent == 125) isTransparent = 255;
 
             GetWindowLong(_hWnd, -20);//-20是设定一个新的扩展风格
             SetWindowLong(_hWnd, -20, 0x10 | 0x80000);//0x10可以选中窗口，0x20穿透窗口
