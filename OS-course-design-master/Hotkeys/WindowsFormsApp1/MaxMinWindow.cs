@@ -50,9 +50,9 @@ namespace WindowsFormsApp1
         #region WindowAPI
 
         [DllImport("user32.dll")]
-        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);//该函数设置由不同线程产生的窗口的显示状态
         [DllImport("user32.dll")]
-        private static extern bool GetWindowPlacement(IntPtr hWnd, ref WindowPlacement lpwndpl);
+        private static extern bool GetWindowPlacement(IntPtr hWnd, ref WindowPlacement lpwndpl); //返回指定窗口的显示状态以及被恢复的、最大化的和最小化的窗口位置
 
         #endregion
     }

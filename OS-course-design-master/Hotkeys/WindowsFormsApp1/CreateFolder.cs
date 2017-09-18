@@ -15,7 +15,10 @@ namespace WindowsFormsApp1
         public CreateFolder (IntPtr hWnd ): base(hWnd) {}
         public override void Execute()
         {
-            Directory.CreateDirectory("filename");
+            string path = "C:\\Users\\Administrator\\Desktop";
+            string filename = "";
+            filename = path + "\\temp";
+            Directory.CreateDirectory(filename);
             MessageBox.Show("ok");
         }
 
