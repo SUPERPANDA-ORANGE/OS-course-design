@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
 {
     class RunApp1 : WindowsFunction
     {
-        public string appPath = "";
+        public string appPath = "C:\\Program Files (x86)\\Tencent\\WeChat\\WeChat.exe";
         public RunApp1(IntPtr hWnd) : base(hWnd) { }
 
         public override void Execute()
