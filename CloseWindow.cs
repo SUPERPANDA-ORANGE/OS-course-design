@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         #region WindowAPI
 
         [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
+        public static extern int SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);//用于关闭程序
 
         #endregion
     }

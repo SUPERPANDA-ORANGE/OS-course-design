@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
 
+
 namespace WindowsFormsApp1
 {
-    class CreateFolder : WindowsFunction
+    class RunApp2 : WindowsFunction
     {
-        public CreateFolder (IntPtr hWnd ): base(hWnd) {}
+        public string appPath = "E:\\TIM\\Bin\\QQScLauncher.exe";
+        public RunApp2(IntPtr hWnd) : base(hWnd) { }
         public override void Execute()
         {
-            string path = "C:\\Users\\Administrator\\Desktop";
-            string filename = "";
-            filename = path + "\\temp";
-            Directory.CreateDirectory(filename);
-            MessageBox.Show("ok");
+            WinExec(appPath, 1);//参数1：最近的位置和大小，激活状态
         }
 
         #region WindowAPI

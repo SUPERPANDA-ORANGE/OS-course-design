@@ -28,6 +28,10 @@ namespace WindowsFormsApp1
                     return new CreateFolder(hwnd);
                 case 8:
                     return new Controller(hwnd);
+                case 9:
+                    return new RunApp2(hwnd);
+                case 10:
+                    return new Calculator(hwnd);
             }
             throw new Exception();
         }
