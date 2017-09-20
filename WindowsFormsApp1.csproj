@@ -62,8 +62,7 @@
     <Compile Include="AlwaysTop.cs" />
     <Compile Include="RunApp1.cs" />
     <Compile Include="RunApp2.cs" />
-    <Compile Include="RunApp3.cs" />
-    <Compile Include="RunApp4.cs" />
+    <Compile Include="Calculator.cs" />
     <Compile Include="Transparency.cs" />
     <Compile Include="WindowsFunction.cs" />
     <Compile Include="WindowsFunctionFactory.cs" />

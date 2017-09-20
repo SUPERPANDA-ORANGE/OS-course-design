@@ -9,10 +9,10 @@ using System.Drawing;
 
 namespace WindowsFormsApp1
 {
-    class RunApp2 : WindowsFunction
+    class Calculator: WindowsFunction
     {
-        public string appPath = "";
-        public RunApp2(IntPtr hWnd) : base(hWnd) { }
+        public string appPath = "calc.exe";
+        public Calculator(IntPtr hWnd) : base(hWnd) { }
 
         public override void Execute()
         {
@@ -21,7 +21,8 @@ namespace WindowsFormsApp1
 
         #region WindowAPI
         [DllImport("kernel32.dll")]
-        public static extern int WinExec(string appPath, int operType);
+        public static extern int WinExec(string appPath, int operType);//启动exe
         #endregion
     }
 }
+

@@ -20,6 +20,7 @@ namespace WindowsFormsApp1
         public static int setkey7;
         public static int setkey8;
         public static int setkey9;
+        public static int setkey10;
 
         public static int comandtemp;
         public static int comand1;
@@ -31,6 +32,7 @@ namespace WindowsFormsApp1
         public static int comand7;
         public static int comand8;
         public static int comand9;
+        public static int comand10;
 
         private IntPtr _hWnd;
 
@@ -67,6 +69,12 @@ namespace WindowsFormsApp1
                 case 8:
                     RegisterHotKey(_hWnd, 8, (uint)comand8, (uint)setkey8);//打开控制面板   
                     break;
+                case 9:
+                    RegisterHotKey(_hWnd, 9, (uint)comand9, (uint)setkey9);//打开控制面板   
+                    break;
+                case 10:
+                    RegisterHotKey(_hWnd, 10, (uint)comand10, (uint)setkey10);//打开控制面板   
+                    break;
             }
         }
 
@@ -98,6 +106,12 @@ namespace WindowsFormsApp1
                 case 8:
                     UnregisterHotKey(_hWnd, 8);
                     break;
+                case 9:
+                    UnregisterHotKey(_hWnd, 9);
+                    break;
+                case 10:
+                    UnregisterHotKey(_hWnd, 10);
+                    break;
             }
 
         }
@@ -105,10 +119,10 @@ namespace WindowsFormsApp1
         #region WindowsAPI
 
         [DllImport("user32.dll")]
-        public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);//注册热键
 
         [DllImport("user32.dll")]
-        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);//注销热键
         #endregion
 
     }

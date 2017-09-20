@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
 
-
 namespace WindowsFormsApp1
 {
-    class RunApp3: WindowsFunction
+    class CreateFolder : WindowsFunction
     {
-        public string appPath = "";
-        public RunApp3(IntPtr hWnd) : base(hWnd) { }
-
+        public CreateFolder(IntPtr hWnd) : base(hWnd) { }
         public override void Execute()
         {
-            WinExec(appPath, 1);//参数1：最近的位置和大小，激活状态
+            string path = "C:\\Users\\Administrator\\Desktop";
+            string filename = "";
+            filename = path + "\\temp";
+            Directory.CreateDirectory(filename);
+            MessageBox.Show("ok");
         }
 
         #region WindowAPI
@@ -25,4 +28,3 @@ namespace WindowsFormsApp1
         #endregion
     }
 }
-

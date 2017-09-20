@@ -14,13 +14,13 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         [DllImport("user32.dll")]
-        public static extern IntPtr FindWindow(string sClassName, String sAppName);//参数指向一个窗口
+        public static extern IntPtr FindWindow(string sClassName, String sAppName);//该函数获得一个顶层窗口的句柄，该窗口的类名和窗口名与给定的字符串相匹配
 
         [DllImport("user32.dll")]
-        public static extern IntPtr GetForegroundWindow();//获取当前窗口
+        public static extern IntPtr GetForegroundWindow();//获取正在激活的窗口
 
-        [DllImport("user32.dll")]//隐藏textbox里的的光标
-        static extern bool HideCaret(IntPtr hWnd);
+        [DllImport("user32.dll")]
+        static extern bool HideCaret(IntPtr hWnd);//隐藏textbox里的的光标
 
         [DllImport("user32.dll")]
         public static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);//自动触发按键
@@ -38,21 +38,23 @@ namespace WindowsFormsApp1
         {
             thisWindow = FindWindow(null, "Form1");//通过名字查找
             hotkey = new Hotkeys(thisWindow);
-            for (int i = 1; i < 9; i++)
+            for (int i = 1; i < 11; i++)
             {
                 hotkey.RegisterHotKeys(i);
             }
         }
-
+        
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //hotkey.UnregisterHotKey();
-            // this.WindowState = FormWindowState.Minimized;
-            keybd_event((byte)17, 0, 0x0002, 0);
+            for (int i = 1; i < 11; i++)
+            {
+                hotkey.UnregisterHotKey(i);
+            }
         }
 
-
+       
+        
 
 
 
@@ -221,12 +223,10 @@ namespace WindowsFormsApp1
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            HideCaret(textBox3.Handle);
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            HideCaret(textBox4.Handle);
         }
 
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
@@ -240,7 +240,6 @@ namespace WindowsFormsApp1
 
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
-            HideCaret(textBox5.Handle);
         }
 
         private void textBox5_KeyDown(object sender, KeyEventArgs e)
@@ -254,7 +253,6 @@ namespace WindowsFormsApp1
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-            HideCaret(textBox6.Handle);
         }
 
         private void textBox6_KeyDown(object sender, KeyEventArgs e)
@@ -268,7 +266,6 @@ namespace WindowsFormsApp1
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            HideCaret(textBox7.Handle);
         }
 
         private void textBox7_KeyDown(object sender, KeyEventArgs e)
@@ -282,7 +279,6 @@ namespace WindowsFormsApp1
 
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
-            HideCaret(textBox8.Handle);
         }
 
         private void textBox8_KeyDown(object sender, KeyEventArgs e)
@@ -326,36 +322,38 @@ namespace WindowsFormsApp1
         
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            Transparency.isTransparent = (trackBar1.Value * 24 + 15);
-            if(trackBar1.Value==10) Transparency.isTransparent=125;
-            if(Hotkeys.comand4 == 0x0004)//shift
+            if (Hotkeys.comand4!=0 || Hotkeys.setkey4!=0)
             {
-                keybd_event((byte)16, 0, 0, 0);//自动按键
-                keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
-                keybd_event((byte)16, 0, 2, 0);//参数2放开按键
-                keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
-            }
-            else if (Hotkeys.comand4 == 0x0002)//control
-            {
-                keybd_event((byte)17, 0, 0, 0);
-                keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
-                keybd_event((byte)17, 0, 2, 0);
-                keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
-            }
-            else if (Hotkeys.comand4 == 0x0001)//alt
-            {
-                keybd_event((byte)18, 0, 0, 0);
-                
-                keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
-                keybd_event((byte)18, 0, 2, 0);
-                keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
-            }
-            else if (Hotkeys.comand4 == 0)
-            {
-                keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
-                keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
-            }
+                Transparency.isTransparent = (trackBar1.Value * 24 + 15);
+                if (trackBar1.Value == 10) Transparency.isTransparent = 125;
+                if (Hotkeys.comand4 == 0x0004)//shift
+                {
+                    keybd_event((byte)16, 0, 0, 0);//自动按键
+                    keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
+                    keybd_event((byte)16, 0, 2, 0);//参数2放开按键
+                    keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
+                }
+                else if (Hotkeys.comand4 == 0x0002)//control
+                {
+                    keybd_event((byte)17, 0, 0, 0);
+                    keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
+                    keybd_event((byte)17, 0, 2, 0);
+                    keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
+                }
+                else if (Hotkeys.comand4 == 0x0001)//alt
+                {
+                    keybd_event((byte)18, 0, 0, 0);
 
+                    keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
+                    keybd_event((byte)18, 0, 2, 0);
+                    keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
+                }
+                else if (Hotkeys.comand4 == 0)
+                {
+                    keybd_event((byte)Hotkeys.setkey4, 0, 0, 0);
+                    keybd_event((byte)Hotkeys.setkey4, 0, 2, 0);
+                }
+            }
 
         }
 
@@ -389,6 +387,52 @@ namespace WindowsFormsApp1
             HideCaret(textBox8.Handle);
         }
 
-        
+        private void textBox9_TextChanged_1(object sender, EventArgs e)
+        {
+        }
+
+        private void label10_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(textBox9.Handle);
+        }
+
+        private void textBox9_KeyDown(object sender, KeyEventArgs e)
+        {
+            idetifyKey(textBox9, e);
+            Hotkeys.comand9 = Hotkeys.comandtemp;
+            Hotkeys.setkey9 = Hotkeys.setkeytemp;
+            hotkey.UnregisterHotKey(9);
+            hotkey.RegisterHotKeys(9);
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox10_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideCaret(textBox10.Handle);
+
+        }
+
+        private void textBox10_KeyDown(object sender, KeyEventArgs e)
+        {
+            idetifyKey(textBox10, e);
+            Hotkeys.comand10 = Hotkeys.comandtemp;
+            Hotkeys.setkey10 = Hotkeys.setkeytemp;
+            hotkey.UnregisterHotKey(10);
+            hotkey.RegisterHotKeys(10);
+        }
+
+        private void Form1_Click(object sender, EventArgs e)
+        {
+            label12.Focus();//点击空白处让textbox失去焦点
+        }
     }
 }
